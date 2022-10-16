@@ -1,6 +1,8 @@
 # Nearest Neighbour Algorithm
 # Source: https://stackoverflow.com/questions/17493494/nearest-neighbour-algorithm
 
+import numpy as np
+
 def NN(A, start):
     """Nearest neighbor algorithm.
     A is an NxN array indicating distance between N locations
@@ -33,11 +35,11 @@ A = np.array([
     [1, 2, 0, 1, 2],
     [2, 1, 1, 0, 2],
     [2, 1, 2, 2, 0]])
-print NN(A,0)
+print(NN(A,0))
 
 
 #Nearest Insertion 
-import numpy as np
+
 
 #Function for Nearest Neighbor Algorithm. 
     #Inputs:
