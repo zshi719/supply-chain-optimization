@@ -1,0 +1,33 @@
+
+
+for every pair (i, j) of demand points DO
+	Calculate the savings s(i, j) = d(D, i) + d(D, j) - d(i, j) 
+
+sort savings s(i, j) in descending order in the savings list
+
+create empty routes
+create lists storing the remaining customer to be served
+set the vehicle capacity 
+
+get a list of nodes
+remove the depot 
+
+Find the first element in the sorted list
+
+if there are remaining customers to be served:
+	for savings s(i, j)
+		if savings(i, j) > 0 DO
+				
+			if i not in a route AND j not in a route: 
+				create a new route with link (i,j)
+				
+			if (i in an existing route and i not interior to that route (not adjacent to the depot):
+				if j not in  an existing route:
+					add link (i, j) to the same route
+			else if (j in an existing route and j not interior to the route (not adjacent to the depot):
+				if i not in  an existing route:
+					 add link (i, j) to the same route
+
+			 if (i in an existing route and j in another existing route
+				if i not adjacent to depot AND j not adjacent to depo
+					merge the two routes.

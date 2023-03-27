@@ -1,0 +1,111 @@
+# Nearest Neighbor: A, start -> tour, cost
+	# A: an NxN array indicating distance/cost between N locations
+	# start: index of the starting location
+	# Tour: tour lis
+	# cost: cost of solution
+	
+def nearest_insertion(A, start): 
+    initialize an empty list for tour
+	initialize tour list beginning with start location
+    initialize subtour beginning and ending with start location
+
+    initialize list of available nodes
+    remove starting node from list of available nodes
+
+    initialize cost of tour
+    initialize minimum cost to large number to be reduced later
+
+    loop through nodes in array:
+        find nearest neighbor to start
+			if nearest_insertion is not node(not in the tour path) 
+            	set new minimum 
+            call nearest_insertion and set nearest neighbor to start
+
+    insert nearest_insertion to tour 
+    update cost with new distance
+    remove nearest_insertion from list of available nodes
+
+    while not all nodes have been visited
+        set minimum cost to a very large number
+       	loop through tour
+            find the current node in tour
+			find next node in tour
+
+            loop through available nodes
+                if the node is not itself
+                	calculate the cost to insert in the tour
+
+                    if the insertion cost is less than min 
+                    	set insertion cost to min
+                        store node index
+                        store the position to insert the node 
+        insert node with minimum insertion cost to tour
+        update cost
+        remove the node from list of available nodes
+
+    return tour, cost
+	
+	
+	
+# Adapted Nearest Neighbor
+
+def NN_modified(A, start, type_array):
+	
+    initialize the path vector tour with start position
+    initialize total cost to 0
+    N = A.shape[0] #initalize array
+    
+	initialize array of boolean values representing locations have not been visited
+    mark start position visited 
+
+    loop through array
+        find the last position to visit
+		initialize found_customer to false 
+        
+		# if current customer is "easy"
+		loop through type_array:
+			if current customer is "hard": 
+				find the next "easy" customer
+					
+	            loop through remaining customers:
+					find the next easy customer with shortest distance
+					append the easy customer to list
+					mark found_customer true
+	                else:
+	                    remove this location 
+	            
+        # if the current customer is "hard."
+		if the current customer is "easy", find the next "hard" customer
+        else:
+			create a copy of the array
+			loop through array:
+				if the current customer is "hard"
+					find the next "easy" customer
+					
+	            loop through remaining customers:
+					find the next easy customer with the shortest distance
+					append the easy customer to list
+					mark found_customer true
+	                else:
+	                    remove this location 
+						
+            for loop_idx in range (len (location_copy)):
+                find minimum of remaining locations
+                find the location associated with the minimum index
+                it is a hard customer,
+                    append location to list
+                    mark found_customer True
+                    break
+                else: remove this location 
+        
+        if did not find the customer (found_customer false):
+            find the minimum of remaining locations
+            and convert to the original location
+            append the next location to tour list
+
+        print(type_array[next_loc])        
+        set next location to False
+        update cost
+		
+		
+	
